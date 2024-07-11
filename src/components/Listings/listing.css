@@ -1,0 +1,20 @@
+.listings {
+  background-color:#858384;
+  padding: 10px;
+  display: flex;
+  margin: 20px;
+  gap: 50px;
+}
+
+.list {
+  display: flex;
+  flex-direction: row;
+  gap: 100px;
+}
+
+.list-link {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  font-size: 1.3rem;
+}

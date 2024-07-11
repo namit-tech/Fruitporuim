@@ -1,0 +1,82 @@
+.footer {
+    width: 100vw;
+    height: 30vh;
+    /* background-color: red; */
+    display: flex;
+    flex-direction: row;
+    margin: 0px 50px;
+}
+
+.footer-logo {
+    width: 10vw;
+    height: 10vh;
+    margin: 20px;
+}
+
+.facebook {
+    width: 3vw;
+    height: 4vh;
+}
+
+.instagram {
+    width: 3vw;
+    height: 4vh;
+}
+
+.twitter {
+    width: 3vw;
+    height: 4vh;
+}
+
+.social-logo {
+    margin: 0px 20px;
+    display: flex;
+    flex-direction: row;
+}
+
+.sec-2 {
+    margin: 30px 100px;
+}
+
+.menu{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    /* margin-top: 10px; */
+}
+.link-text{
+    color: black;
+    text-decoration: none;
+}
+/* .hr{
+    height: 10px;
+    color: black;
+} */
+.sec-3{
+    margin: 30px 0px;
+}
+.address{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.sec-4{
+    margin: 30px 100px;
+}
+.trademarks{
+    display: flex;
+    flex-direction: column;
+}
+
+.trademark{
+    width: 5vw;
+    height: 8vh;
+}
+.veg{
+    width: 5vw;
+    height: 8vh;
+}
+.copyright{
+    display: flex;
+    justify-content: center;
+}

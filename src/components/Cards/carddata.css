@@ -1,0 +1,15 @@
+.data {
+    padding: 10px;
+    margin: 25px 18px;
+    width: 14vw;
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.data-img {
+    width: 14vw;
+    height: 30vh;
+}
