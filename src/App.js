@@ -7,6 +7,8 @@ import Listing from "./components/Listings/Listing";
 import CardData from "./components/Cards/CardData";
 import Footer from "./components/Footer/Footer";
 import Fruits from "./components/fruits/Fruits";
+import 'boxicons/css/boxicons.min.css';
+
 import {
   BrowserRouter as Router,
   Switch,
@@ -18,6 +20,7 @@ import {
 function App() {
   return (
     <>
+    <div className="main-class">
      <Router>
       <div>
         <NavBar />
@@ -25,11 +28,15 @@ function App() {
           <Routes>
             <Route path="/" element={<><Listing /><CardData /></>} />
             <Route path="/fruits" element={<Fruits/>} />
+            <Route path="/fruits" element={<Fruits/>} />
+            <Route path="/fruits" element={<Fruits/>} />
+            <Route path="/fruits" element={<Fruits/>} />
           </Routes>
         </div>
         <Footer />
       </div>
     </Router>
+    </div>
     </>
   );
 }

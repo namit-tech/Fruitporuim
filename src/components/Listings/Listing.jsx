@@ -7,12 +7,17 @@ import { Link, NavLink } from "react-router-dom";
 const Listing = () => {
   const categoryBtn = {
     backgroundColor: "#709F41",
-  }
+    border: "0px",
+  };
   return (
     <>
       <div className="listings">
         <Dropdown>
-          <Dropdown.Toggle id="dropdown-basic" style={categoryBtn} variant="success">
+          <Dropdown.Toggle
+            id="dropdown-basic"
+            style={categoryBtn}
+            className="categoryBtn"
+          >
             Shop By Categories
           </Dropdown.Toggle>
           <Dropdown.Menu>
@@ -27,12 +32,13 @@ const Listing = () => {
           </Dropdown.Menu>
         </Dropdown>
         <div className="list">
-          <Link className="list-link" to="/veg">
-            Vegetable
-          </Link>
           <Link className="list-link" to="/fruits">
             Fruits
           </Link>
+          <Link className="list-link" to="/vegetables">
+            Vegetable
+          </Link>
+
           <Link className="list-link" to="/">
             Dry Fruits
           </Link>

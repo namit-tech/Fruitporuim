@@ -1,9 +1,18 @@
+/* *{
+  margin: 25px;
+} */
 .listings {
-  background-color:#858384;
-  padding: 10px;
+  background-color:#e8e8e8;
+  padding: 5px;
   display: flex;
-  margin: 20px;
-  gap: 50px;
+  margin: 0px 100px;
+  gap: 40px;
+  height: 5vh;
+  /* color: black; */
+}
+.categoryBtn{
+  margin-top: 1px;
+  border: 0px;
 }
 
 .list {
@@ -14,7 +23,8 @@
 
 .list-link {
   text-decoration: none;
-  color: white;
+  color: black;
   font-weight: 500;
-  font-size: 1.3rem;
+  font-size: 1rem;
+  margin-top: 5px;
 }

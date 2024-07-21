@@ -1,0 +1,32 @@
+.cart-btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  border-radius: 7px;
+  border: 0px;
+  width: 6vw;
+  background-color: #709f41;
+  color: white;
+  height: 3.4vh;
+  margin-top: 16px;
+}
+.cart-btn p {
+  font-size: 1rem;
+}
+
+.icon {
+  font-size: 22px;
+  color: white;
+  position: relative;
+  transition: 0.6s;
+  z-index: 44;
+  margin-bottom: 8
+  px;
+}
+
+.icon:hover {
+  transform: rotate(90deg);
+  transform-origin: center center;
+}
+

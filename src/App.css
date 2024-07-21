@@ -1,11 +1,13 @@
-
 *,
 *::before,
 *::after {
-  margin: 0;
-  padding: 0;
+  margin: 0px;
+  padding: 0px;
   box-sizing: border-box;
   list-style-type: none;
+}
+.main-class {
+  overflow-x: hidden;
 }
 
 :root {
@@ -51,7 +53,7 @@ html {
 }
 
 ::-webkit-scrollbar-track {
-  background:#ffffff;
+  background: #ffffff;
 }
 
 body {
@@ -166,7 +168,7 @@ body {
 }
 
 .slider-controler .slider-arrow::after {
-  content: '';
+  content: "";
 }
 
 .swiper-pagination {

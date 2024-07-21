@@ -1,22 +1,17 @@
 import React, { useState, useEffect } from "react";
 import "./navbar.css";
 import Login from "./Login";
-import Signup from "./Signup";
+import WebName from "./WebName";
 import Registered from "./Registered";
-import logo from "../../assets/Fruitporium logo.jpg";
-import userImg from "../../assets/icons8-user-50.png";
-import cartImg from "../../assets/icons8-cart-64.png";
+import logo from "../../assets/Fruitporium.jpg";
+import "boxicons/css/boxicons.min.css";
 import { Dropdown } from "react-bootstrap";
 import UnRegistered from "./Unregistered";
+import { Link } from "react-router-dom";
+import Cart from "./Cart/Cart";
 
 const NavBar = () => {
-  const [showLogin, setShowLogin] = useState(false);
-  const handleCloseLogin = () => setShowLogin(false);
-  const handleShowLogin = () => setShowLogin(true);
-
-  const [showSignup, setShowSignup] = useState(false);
-  const handleCloseSignup = () => setShowSignup(false);
-  const handleShowSignup = () => setShowSignup(true);
+  const [modalShow, setModalShow] = React.useState(false);
 
   const [showRegistered, setShowRegistered] = useState(false);
   const handleCloseRegistered = () => setShowRegistered(false);
@@ -26,21 +21,34 @@ const NavBar = () => {
   const handleCloseUnRegistered = () => setShowUnRegistered(false);
   const handleShowUnRegistered = () => setShowUnRegistered(true);
 
+  const [isHovered, setIsHovered] = useState(false);
+  const [isHoveredB2b, setIsHoveredB2b] = useState(false);
+
   const successDropdown = {
-    backgroundColor: "#709F41",
+    backgroundColor: "white",
+    marginTop: "5px",
   };
   const B2BDropdown = {
-    borderRadius: "0px 20px 20px 0px",
-    backgroundColor: "#709F41",
-    marginTop: "25px",
-    height: "5vh",
+    borderRadius: "0px 5px 5px 0px",
+    backgroundColor: isHoveredB2b ? "#709F41" : "white",
+    color: isHoveredB2b ? "white" : "black",
+    fontSize: "12px",
+    marginTop: "17px",
+    marginRight: "20px",
+    height: "4.5vh",
   };
+
+  // #709F41
   const B2CDropdown = {
-    borderRadius: "20px 0px 0px 20px",
-    backgroundColor: "#709F41",
-    marginTop: "25px",
-    height: "5vh",
+    borderRadius: "5px 0px 0px 5px",
+    backgroundColor: isHovered ? "#709F41" : "white",
+    color: isHovered ? "white" : "black",
+    marginLeft: "15px",
+    fontSize: "12px",
+    marginTop: "17px",
+    height: "4.5vh",
   };
+
   const LocationFirstbtn = {
     display: "flex",
     justifyContent: "center",
@@ -50,10 +58,6 @@ const NavBar = () => {
     color: "white",
     borderRadius: "30px",
     width: "7vw",
-  };
-
-  const locationDropdown = {
-    padding: "10px",
   };
 
   const placeholders = [
@@ -82,13 +86,14 @@ const NavBar = () => {
     <>
       <div>
         <nav>
-          <img src={logo} alt="no icon" className="logo" />
-          <div className="location">
+          <Link to="/">
+            <img src={logo} alt="no icon" className="logo" />
+          </Link>
+
+          {/* <div className="location">
             <Dropdown>
               <Dropdown.Toggle
-                variant="success"
                 id="dropdown-basic"
-                className="btn-success"
                 style={successDropdown}
               >
                 New Delhi
@@ -109,7 +114,8 @@ const NavBar = () => {
                 </div>
               </Dropdown.Menu>
             </Dropdown>
-          </div>
+          </div> */}
+          <WebName />
           <div className="search-container">
             <input
               type="text"
@@ -119,41 +125,63 @@ const NavBar = () => {
           </div>
           <div className="buttn">
             <Dropdown>
-              <Dropdown.Toggle id="dropdown-basic"  variant="success" style={B2CDropdown}>
+              <Dropdown.Toggle
+                id="dropdown-basic"
+                variant="light"
+                style={B2CDropdown}
+                onMouseEnter={() => setIsHovered(true)}
+                onMouseLeave={() => setIsHovered(false)}
+              >
                 B2C
               </Dropdown.Toggle>
               <Dropdown.Menu>
-                <Dropdown.Item href="#/action-1" onClick={handleShowLogin}>
-                  LogIn
+                <Dropdown.Item onClick={() => setModalShow(true)}>
+                  Login / Sign up
                 </Dropdown.Item>
-                <Login showLogin={showLogin} handleCloseLogin={handleCloseLogin} />
-                <Dropdown.Item href="#/action-2" onClick={handleShowSignup}>
-                  SignUp
-                </Dropdown.Item>
-                <Signup showSignup={showSignup} handleCloseSignup={handleCloseSignup} />
+                <Login show={modalShow} onHide={() => setModalShow(false)} />
               </Dropdown.Menu>
             </Dropdown>
             <Dropdown>
-              <Dropdown.Toggle id="dropdown-basic"  variant="success" style={B2BDropdown}>
+              <Dropdown.Toggle
+                id="dropdown-basic"
+                variant="light"
+                style={B2BDropdown}
+                onMouseEnter={() => setIsHoveredB2b(true)}
+                onMouseLeave={() => setIsHoveredB2b(false)}
+              >
                 B2B
               </Dropdown.Toggle>
               <Dropdown.Menu>
                 <Dropdown.Item href="#/action-3" onClick={handleShowRegistered}>
                   Registered
                 </Dropdown.Item>
-                <Registered showRegistered={showRegistered} handleCloseRegistered={handleCloseRegistered} />
-                <Dropdown.Item href="#/action-2"  onClick={handleShowUnRegistered}>
-                UnRegistered
+                <Registered
+                  showRegistered={showRegistered}
+                  handleCloseRegistered={handleCloseRegistered}
+                />
+                <Dropdown.Item
+                  href="#/action-2"
+                  onClick={handleShowUnRegistered}
+                >
+                  UnRegistered
                 </Dropdown.Item>
-                <UnRegistered showUnRegistered={showUnRegistered} handleCloseUnRegistered={handleCloseUnRegistered} />
+                <UnRegistered
+                  showUnRegistered={showUnRegistered}
+                  handleCloseUnRegistered={handleCloseUnRegistered}
+                />
               </Dropdown.Menu>
             </Dropdown>
           </div>
-          <img className="userImg" alt="not found" src={userImg} />
-          <img className="cartImg" alt="not found" src={cartImg} />
+          <button className="user-login" onClick={() => setModalShow(true)}>
+            <p>Login / Sign up</p>
+          </button>
+          <button className="cart-btn">
+            <Cart/>
+          </button>
         </nav>
       </div>
       <hr className="hr" />
+      <Login show={modalShow} onHide={() => setModalShow(false)} />
     </>
   );
 };
