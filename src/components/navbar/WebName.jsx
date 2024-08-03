@@ -32,7 +32,7 @@ const WebName = () => {
           delay={{ show: 250, hide: 400 }}
           overlay={renderTooltip}
         >
-          <Button style={layBtn}>thefruitporuim.com</Button>
+          <Button style={layBtn}>thefruitporium.com</Button>
         </OverlayTrigger>
       </div>
     </>

@@ -1,8 +1,7 @@
 import React from "react";
 import "./listing.css";
 import Dropdown from "react-bootstrap/Dropdown";
-// import Button from 'react-bootstrap/Button';
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Listing = () => {
   const categoryBtn = {

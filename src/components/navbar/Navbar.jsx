@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import "./navbar.css";
-import Login from "./Login";
+import Login from "./login/Login";
 import WebName from "./WebName";
 import Registered from "./Registered";
-import logo from "../../assets/Fruitporium.jpg";
+import logo from "../../assets/Fruitporium logo name.jpg";
 import "boxicons/css/boxicons.min.css";
 import { Dropdown } from "react-bootstrap";
 import UnRegistered from "./Unregistered";
@@ -23,6 +23,7 @@ const NavBar = () => {
 
   const [isHovered, setIsHovered] = useState(false);
   const [isHoveredB2b, setIsHoveredB2b] = useState(false);
+  const [isVerified, setIsVerified] = useState(false);
 
   const successDropdown = {
     backgroundColor: "white",
@@ -84,7 +85,7 @@ const NavBar = () => {
 
   return (
     <>
-      <div>
+      <div className="sticky">
         <nav>
           <Link to="/">
             <img src={logo} alt="no icon" className="logo" />
@@ -172,16 +173,22 @@ const NavBar = () => {
               </Dropdown.Menu>
             </Dropdown>
           </div>
-          <button className="user-login" onClick={() => setModalShow(true)}>
-            <p>Login / Sign up</p>
-          </button>
+          {!isVerified ? (
+            <button className="user-login" onClick={() => setModalShow(true)}>
+              <p>Login / Sign up</p>
+            </button>
+          ) : (
+            <button className="user-login">
+              <p>My Account</p>
+            </button>
+          )}
           <button className="cart-btn">
-            <Cart/>
+            <Cart />
           </button>
         </nav>
       </div>
-      <hr className="hr" />
-      <Login show={modalShow} onHide={() => setModalShow(false)} />
+      {/* <hr className="hr-shadow" /> */}
+      <Login show={modalShow} onHide={() => setModalShow(false)} setIsVerified={setIsVerified} />
     </>
   );
 };

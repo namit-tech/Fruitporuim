@@ -16,17 +16,32 @@
 }
 
 .icon {
-  font-size: 22px;
+  font-size: 20px;
   color: white;
-  position: relative;
-  transition: 0.6s;
+  transition: transform 0.6s ease-in-out;
   z-index: 44;
-  margin-bottom: 8
-  px;
+  margin-bottom: 8px;
 }
 
 .icon:hover {
-  transform: rotate(90deg);
-  transform-origin: center center;
+  animation: rotate-animation 1s infinite;
+}
+
+@keyframes rotate-animation {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-20deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  75% {
+    transform: rotate(20deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
 }
 
